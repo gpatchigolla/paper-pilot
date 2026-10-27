@@ -1,0 +1,68 @@
+For company and product research, the sources are different (docs, pricing pages, changelogs, announcements, funding news, user reviews), so the prompts change too. Here are four that do most of the work.
+
+## 1. Research the landscape (Claude, Research mode on)
+
+```
+I'm writing a paper on [topic, e.g., AI coding assistants for enterprise teams].
+
+Research the current landscape as of today and give me:
+- The main companies and products, grouped by category
+- For each: what it does, who it's for, pricing model, key differentiator, 
+  latest major release or update with date
+- Funding, acquisitions, or partnerships from the last 12 months
+- Where the market is heading and what's changed in the last 6 months
+
+Prioritize official sources (company sites, docs, changelogs, press releases, 
+filings) over blogs and listicles. Give a link for every fact. Flag anything 
+outdated or unverified.
+```
+
+Save the report, then add the official links it found (product pages, docs, pricing, announcements) as sources in NotebookLM.
+
+## 2. Extract the facts (NotebookLM)
+
+```
+Using only these sources, build a comparison table of every product mentioned.
+Columns: company, product, category, target customer, core features, pricing, 
+integrations, deployment (cloud / on-prem / API), latest release and date, 
+stated limitations.
+
+Write "not stated" where the sources don't say. Cite every cell. 
+After the table, list where sources contradict each other (e.g., different 
+pricing or feature claims) with both citations.
+```
+
+Copy the table and contradictions list into a text file.
+
+## 3. Analyze and write (Claude)
+
+Upload the Research report and NotebookLM file into a Claude Project.
+
+```
+Using the research report and comparison table I've uploaded, write a 
+[length] paper on [topic] for [audience: class / leadership / blog / publication].
+
+Before writing:
+1. Give me the 3 most important insights a reader wouldn't get from 
+   reading each company's website (patterns, positioning gaps, who's 
+   winning and why, where hype outpaces the product).
+2. Propose a thesis and outline. Wait for my approval.
+
+When writing:
+- Use the uploaded material only; mark each fact with [SOURCE: name]
+- Separate facts from your analysis
+- No marketing language, no hype
+```
+
+## 4. Verify (NotebookLM)
+
+Run this on any claim you're not sure about, especially pricing, dates, and feature claims, since these change fastest.
+
+```
+Do the sources support this statement exactly as written? Quote the passage. 
+If it's outdated, partial, or wrong, tell me the correct version.
+
+Statement: "[sentence from your draft]"
+```
+
+One habit worth keeping: product facts go stale fast, so do the final check against the live company pages right before you publish, not just against what you saved weeks earlier.
